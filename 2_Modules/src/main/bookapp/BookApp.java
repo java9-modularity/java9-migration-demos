@@ -13,13 +13,19 @@ public class BookApp {
 
     int id1 = booksService.createBook("Java 9 Modularity in Action", 45.0d);
     int id2 = booksService.createBook("Modular Cloud Apps with OSGi", 40.0d);
+    printf("Created books with id [%d, %d]", id1, id2);
 
-    System.out.println(String.format("Created books with id [%1d, %2d]", id1, id2));
     Book book1 = booksService.getBook(id1);
     Book book2 = booksService.getBook(id2);
-    System.out.println(String.format("Retrieved book %1d: %2s ", id1, book1.getTitle()));
-    System.out.println(String.format("Retrieved book %1d: %2s ", id2, book2.getTitle()));
+    printf("Retrieved books:\n  %d: %s\n  %d: %s",
+      id1, book1.getTitle(), id2, book2.getTitle());
+
     double total = store.calculatePrice(id1, id2);
-    System.out.println(String.format("Total price: %1$.2f", total));
+    printf("Total price: %1$.2f", total);
   }
+
+  private static void printf(String msg, Object... args) {
+    System.out.println(String.format(msg + "\n", args));
+  }
+
 }

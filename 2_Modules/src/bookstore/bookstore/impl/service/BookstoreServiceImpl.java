@@ -1,5 +1,6 @@
 package bookstore.impl.service;
 
+import java.util.Arrays;
 import books.api.entities.Book;
 import books.api.service.BooksService;
 import bookstore.api.service.BookstoreService;
@@ -15,12 +16,10 @@ public class BookstoreServiceImpl implements BookstoreService {
   }
 
   public double calculatePrice(int... bookIds) {
-    double total = 0d;
-
-    for(int id: bookIds) {
-      Book book = booksService.getBook(id);
-      total += book.getPrice();
-    }
+    double total = Arrays
+      .stream(bookIds)
+      .mapToDouble(id -> booksService.getBook(id).getPrice())
+      .sum();
 
     return total * TAX;
   }

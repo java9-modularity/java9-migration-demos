@@ -4,5 +4,5 @@ import books.api.entities.Book;
 
 public interface BooksService {
   Book getBook(int id);
-  int storeBook(Book book);
+  int createBook(String title, double price);
 }

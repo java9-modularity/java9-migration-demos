@@ -14,8 +14,7 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="books.impl.service"/>
-    <context:component-scan base-package="bookstore.impl.service"/>
-
+    
 	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
         <property name="url" value="jdbc:hsqldb:mem:testdb"/>

@@ -12,7 +12,7 @@ public class Main {
 		System.out.println("Starting...");
 
 		ApplicationContext context =
-    		new ClassPathXmlApplicationContext(new String[] {"classpath:/main.xml"});
+    		new ClassPathXmlApplicationContext(new String[] {"classpath:/bookstore-spring.xml","classpath:/books-spring.xml"});
 
 
 		BooksService booksService = context.getBean(BooksService.class);

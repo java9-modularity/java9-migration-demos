@@ -1,0 +1,8 @@
+1_Classpath/out
+bookapp@1.0.jar
+3_MonolithicSpring/out
+4_ModularSpring/mods/books.api@1.0.jar
+4_ModularSpring/mods/books.impl@1.0.jar
+4_ModularSpring/mods/bookstore@1.0.jar
+4_ModularSpring/mods/main@1.0.jar
+4_ModularSpring/out

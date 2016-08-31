@@ -9,6 +9,9 @@ module bookapp {
 	
 	requires java.naming;
 
+	exports books.api.service;
+	exports books.api.entities;
+
 	exports dynamic books.impl.entities;
 	exports dynamic books.impl.service;
 	exports dynamic bookstore.impl.service;

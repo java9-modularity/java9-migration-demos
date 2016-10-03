@@ -7,6 +7,6 @@ module books.impl {
 	requires hibernate.core;
 	requires hibernate.jpa;
 	
-	exports dynamic books.impl.entities;
-	exports dynamic books.impl.service;
+	exports private books.impl.entities;
+	exports private books.impl.service;
 }

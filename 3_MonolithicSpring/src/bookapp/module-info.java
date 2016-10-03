@@ -1,4 +1,4 @@
-module bookapp {
+weak module bookapp {
 	requires spring.context;
 	requires spring.tx;
 	
@@ -7,12 +7,5 @@ module bookapp {
 	requires hibernate.core;
 	requires hibernate.jpa;
 	
-	requires java.naming;
-
-	exports books.api.service;
-	exports books.api.entities;
-
-	exports dynamic books.impl.entities;
-	exports dynamic books.impl.service;
-	exports dynamic bookstore.impl.service;
+	requires java.naming;	
 }

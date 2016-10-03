@@ -1,4 +1,4 @@
-module bookapp {
+open module bookapp {
 	requires spring.context;
 	requires spring.tx;
 	

@@ -5,4 +5,4 @@ javac -cp $CLASSPATH -d out -sourcepath src $(find src -name '*.java')
 
 cp $(find src -name '*.xml') out
 
-java -cp $CLASSPATH:out main.Main
+java -cp $CLASSPATH:out --add-modules java.xml.bind main.Main

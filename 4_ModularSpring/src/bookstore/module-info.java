@@ -4,5 +4,5 @@ module bookstore {
 	requires spring.context;
 
 	exports bookstore.api.service;
-	exports private bookstore.impl.service;
+	opens bookstore.impl.service;
 }

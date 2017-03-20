@@ -15,5 +15,5 @@ jar --create --file mods/bookstore@1.0.jar --module-version=1.0 -C out/bookstore
 java -cp $CLASSPATH     \
      --module-path mods           \
      --add-modules java.xml.bind,java.sql,javassist,books.impl \
-     --add-exports-private java.base/java.lang=javassist \
+     --add-opens java.base/java.lang=javassist \
      -m main/main.Main

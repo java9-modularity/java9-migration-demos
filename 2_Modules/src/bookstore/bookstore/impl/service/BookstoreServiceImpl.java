@@ -4,24 +4,27 @@ import java.util.Arrays;
 import books.api.entities.Book;
 import books.api.service.BooksService;
 import bookstore.api.service.BookstoreService;
+import java.util.ServiceLoader;
+import java.util.Iterator;
+import java.util.Optional;
 
 public class BookstoreServiceImpl implements BookstoreService {
 
   private static double TAX = 1.21d;
 
-  private BooksService booksService;
-
-  public BookstoreServiceImpl(BooksService booksService) {
-    this.booksService = booksService;
-  }
-
   public double calculatePrice(int... bookIds) {
-    double total = Arrays
+    Optional<BooksService> service = ServiceLoader.load(BooksService.class).findFirst();
+
+    if(service.isPresent()) {
+      double total = Arrays
       .stream(bookIds)
-      .mapToDouble(id -> booksService.getBook(id).getPrice())
+      .mapToDouble(id -> service.get().getBook(id).getPrice())
       .sum();
 
-    return total * TAX;
+      return total * TAX;
+    }
+
+    return 0;
   }
 
 }

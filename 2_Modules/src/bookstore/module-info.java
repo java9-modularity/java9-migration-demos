@@ -1,6 +1,8 @@
 module bookstore {
-  requires books.api;
+  requires transitive books.api;
 
   exports bookstore.api.service;
-  exports bookstore.impl.service;
+
+  provides bookstore.api.service.BookstoreService with bookstore.impl.service.BookstoreServiceImpl;
+  uses books.api.service.BooksService;
 }

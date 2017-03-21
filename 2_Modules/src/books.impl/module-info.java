@@ -1,5 +1,5 @@
 module books.impl {
-  requires public books.api;
+  requires books.api;
 
-  exports books.impl.service;
+  provides books.api.service.BooksService with books.impl.service.InMemoryBooksService;
 }

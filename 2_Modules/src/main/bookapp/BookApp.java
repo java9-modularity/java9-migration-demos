@@ -2,15 +2,14 @@ package bookapp;
 
 import books.api.entities.Book;
 import books.api.service.BooksService;
-import books.impl.service.InMemoryBooksService;
 import bookstore.api.service.BookstoreService;
-import bookstore.impl.service.BookstoreServiceImpl;
+import java.util.ServiceLoader;
 
 public class BookApp {
   public static void main(String... args) {
     // Instantiation and 'wiring'
-    BooksService booksService = new InMemoryBooksService();
-    BookstoreService store = new BookstoreServiceImpl(booksService);
+    BooksService booksService = ServiceLoader.load(BooksService.class).findFirst().get();
+    BookstoreService store = ServiceLoader.load(BookstoreService.class).findFirst().get();
 
     // Create some books
     int id1 = booksService.createBook("Java 9 Modularity", 45.0d);

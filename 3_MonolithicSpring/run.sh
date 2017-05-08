@@ -2,15 +2,16 @@ CLASSPATH=lib/antlr-2.7.7.jar:lib/cdi-api-1.1.jar:lib/classmate-1.3.0.jar:lib/co
 
 javac -cp $CLASSPATH \
       --module-path mods \
+      --add-modules java.naming \
       -d out         \
       --module-source-path src $(find src -name '*.java')
 
 cp $(find src -name '*.xml') out/bookapp
 
-jar --create --file mods/bookapp@1.0.jar --module-version=1.0 -C out/bookapp .
+#jar --create --file mods/bookapp@1.0.jar --module-version=1.0 -C out/bookapp .
 
 java -cp $CLASSPATH \
-     --module-path mods       \
-     --add-modules java.xml.bind,java.sql,javassist \
+     --module-path mods:out       \
+     --add-modules java.xml.bind,java.sql \
      --add-opens java.base/java.lang=javassist \
      -m bookapp/main.Main

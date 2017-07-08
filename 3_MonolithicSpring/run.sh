@@ -4,11 +4,10 @@ javac -cp $CLASSPATH \
       --module-path mods \
       --add-modules java.naming \
       -d out         \
-      --module-source-path src $(find src -name '*.java')
+      --module-source-path src \
+      -m bookapp
 
 cp $(find src -name '*.xml') out/bookapp
-
-#jar --create --file mods/bookapp@1.0.jar --module-version=1.0 -C out/bookapp .
 
 java -cp $CLASSPATH \
      --module-path mods:out       \

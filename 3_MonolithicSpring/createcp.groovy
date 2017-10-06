@@ -1,1 +1,0 @@
-println new File('lib').listFiles().join(':')

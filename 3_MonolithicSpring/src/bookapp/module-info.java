@@ -1,17 +1,14 @@
 module bookapp {
-	requires spring.context;
-	requires spring.tx;
+    requires spring.context;
+    requires spring.tx;
+    requires javax.inject;
+    requires hibernate.core;
+    requires hibernate.jpa;
 
-	requires javax.inject;
+    opens books.impl.entities;
+    opens books.impl.service;
+    opens bookstore.impl.service;
 
-	requires hibernate.core;
-	requires hibernate.jpa;
-
-	exports books.api.entities;
-	exports books.api.service;
-	opens books.impl.entities;
-	opens books.impl.service;
-
-	exports bookstore.api.service;
-	opens bookstore.impl.service;
+    exports books.api.service;
+    exports books.api.entities;
 }
